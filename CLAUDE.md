@@ -8,11 +8,15 @@ React 19 + TypeScript + Vite, static app, data from `data/schedule.public.json`,
 ## Rules
 - Domain logic (clash detection, ECTS, exam clashes) lives in `src/lib/` as pure functions with unit tests. UI imports from there.
 - Class clash: same day, overlapping time, intersecting term spans. `T1+T2` (type S1) intersects both terms.
-- Exam clash: same date and same start slot (08:30, 11:30, 14:30, 17:30), treated as 3 h. It is a blocking error.
+- Exam clash: same date and overlapping time, each assessment treated as 3 h from its start slot (08:30, 11:30, 14:30, 17:30). Two final exams clashing is a blocking error; overlaps involving midterms/presentations, or same date with unknown time, are warnings.
 - Mandatory courses come from `offering_programs` (status `mandatory`); electives come from `program_courses`, NOT from colours.
 - Never commit lecturer names. `data/private/` is git-ignored; `schedule.public.json` has empty `professors`.
 - Code and docs in English. Talk to the user in Polish.
 - Keep `docs/SPEC.md` in sync with any behaviour change. Update the open questions list when one is answered.
+
+## Code map
+- `src/lib/`: pure domain logic with tests (`schedule.ts` data + eligibility, `clashes.ts`, `exams.ts`, `ects.ts`, `selection.ts` incl. localStorage, `layout.ts` timetable lanes).
+- `src/components/`: React UI. `src/data.ts` loads and normalises the JSON once.
 
 ## Commands
 `npm install`, `npm run dev`, `npm test` (`npm run test:watch` for watch mode), `npm run lint`, `npm run build`.

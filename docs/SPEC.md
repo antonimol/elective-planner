@@ -44,11 +44,11 @@ Goal: show the student's weekly timetable (mandatory courses plus chosen electiv
 |---|---|
 | FR-1 | The student selects a program, then a section. Sections are listed per program (section letters are specific to a program). |
 | FR-2 | The mandatory offerings for the chosen program and section are loaded and shown on the timetable. |
-| FR-3 | The student can add and remove electives. Electives offered to the program are listed with course code, title, term, ECTS, meeting times. Courses of type OUT_PROGRAM (from other masters) are shown separately. A course with several sections (TXA, TXB, ...) lets the student pick the section. |
+| FR-3 | The student can add and remove electives. Electives offered to the program are listed with course code, title, term, ECTS, meeting times. Courses of type OUT_PROGRAM (from other masters) are shown separately. A course with several sections (TXA, TXB, ...) lets the student pick the section; picking another section of the same course (same term) replaces the previous one. Each section shows whether it would cause a time or exam clash, and hovering it previews it on the timetable. A "Hide clashing" filter hides courses whose every section clashes. Courses mandatory for the student's program and section are not listed. |
 | FR-4 | Timetable per term. A meeting with term span `T1` shows only in T1, `T2` only in T2, `T1+T2` (type S1) in both. |
-| FR-5 | The ECTS counter shows the total for the plan, per term and per semester. S1 courses count 7 ECTS, T1/T2 courses 3.5. The required minimum or maximum is **OPEN**. |
+| FR-5 | The ECTS counter shows the semester total and the ECTS of T1, T2 and S1 courses separately, plus the load per term (term courses plus half of each S1 course). S1 courses count 7 ECTS, T1/T2 courses 3.5. ECTS inferred from the term length are marked with `*`. The required minimum or maximum is **OPEN**. |
 | FR-6 | **Class clash:** two meetings clash if they are on the same day, their time ranges overlap, and their term spans intersect. A clash is shown on the timetable and in the message area. |
-| FR-7 | **Exam clash (error):** two courses on the plan with the same exam date and overlapping exam times are a blocking error. Exam dates come from the data (**OPEN**: not in the source PDF). |
+| FR-7 | **Exam clash (error):** two final exams (kind `exam`) of different courses on the plan with the same date and overlapping times are a blocking error. Each assessment is treated as 3 h from its start slot; an explicit range (`09:00-12:00`) is used as given; per-section times in the note (`TXB - 11:00 & TXA - 15:30`) are resolved for the offering's section. Overlaps that involve a midterm or presentation, and two assessments on the same date where a time is unknown, are **warnings** (see open question 11). Exam dates come from the exams calendar. |
 | FR-8 | A panel lists exam date and time per course on the plan, sorted by date. |
 | FR-9 | (Later) On a clash, look for another offering of the same course that does not clash and suggest it. |
 | FR-10 | The selection is stored locally in the browser and survives a page reload. |
@@ -128,6 +128,7 @@ Resolved since v0.1: exam dates (loaded), ECTS of electives (loaded), elective e
 8. **Meaning of `#B`** after lecturer names.
 9. **Definition of "second option".** For FR-9, is an alternative another section in the same term, the same course in the other term, or both?
 10. **T3 and T4 timetable.** Their elective lists and ECTS are loaded, but there are no meeting times yet.
+11. **Midterm and presentation clashes.** The MVP treats only overlapping final exams as a blocking error; overlaps with midterms or presentations are warnings. Confirm whether midterm clashes should also block.
 
 ## 10. Data and privacy
 

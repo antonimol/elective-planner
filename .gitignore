@@ -7,3 +7,6 @@ dist/
 # personal data (lecturer names): never commit
 data/private/
 *.sqlite
+
+# local preview config (machine-specific paths)
+.claude/launch.json

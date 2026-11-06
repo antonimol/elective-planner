@@ -2,7 +2,7 @@
 
 Timetable-aware elective selection for Nova SBE MSc students. Shows mandatory and elective courses on a weekly calendar (T1/T2), counts ECTS, and flags class and exam clashes.
 
-Status: planning. Spec: [docs/SPEC.md](docs/SPEC.md). Data notes: [docs/DATA_NOTES.md](docs/DATA_NOTES.md).
+Status: MVP working locally (T1/T2, clash and exam checks, ECTS, saved selection). Not deployed yet. Spec: [docs/SPEC.md](docs/SPEC.md). Data notes: [docs/DATA_NOTES.md](docs/DATA_NOTES.md).
 
 ## Features (MVP)
 - Choose program and section

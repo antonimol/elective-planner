@@ -1,0 +1,270 @@
+course_code,period,title,ects,ects_source
+2260,A,Nova Students Portfolio,7.0,electives_pdf
+2174,S1,Macroeconomic Analysis,,
+2176,S1,Development Economics,7.0,electives_pdf
+2188,S1,Microeconomic Analysis,,
+2206,S1,Banking,7.0,electives_pdf
+2229,S1,Investments,7.0,electives_pdf
+2232,S1,Applied Corporate Finance,7.0,electives_pdf
+2327,S1,Brand Management,7.0,electives_pdf
+2421,S1,Applied Entrepreneurship,7.0,electives_pdf
+2460,S1,Strategy Consulting,7.0,electives_pdf
+2477,S1,Introduction to Programming,7.0,electives_pdf
+2484,S1,Corporate Strategy and Transformation,7.0,electives_pdf
+2485,S1,Innovation and Value Creation Wheel,7.0,electives_pdf
+2582,S1,Competitive Strategy: An Analytical Approach,7.0,electives_pdf
+2648,S1,Diversity & Inclusion,7.0,electives_pdf
+2652,S1,Fundamentals on Environment and Sustainability,7.0,electives_pdf
+2698,S1,Management Consulting,7.0,electives_pdf
+2784,S1,Curricular Internship - Semestral,7.0,electives_pdf
+2800,S1,Extracurricular Internship - Semestral,0.0,electives_pdf
+2967,S1,Women in Leadership,7.0,electives_pdf
+2165,S2,Microeconometrics,7.0,electives_pdf
+2168,S2,Macroeconometrics,7.0,electives_pdf
+2206,S2,Banking,7.0,electives_pdf
+2220,S2,Entrepreneurial Finance & Venture Capital,7.0,electives_pdf
+2232,S2,Applied Corporate Finance,7.0,electives_pdf
+2327,S2,Brand Management,7.0,electives_pdf
+2421,S2,Applied Entrepreneurship,7.0,electives_pdf
+2437,S2,Luxury and Fashion Marketing,7.0,electives_pdf
+2438,S2,Cross-Cultural Issues for Marketing,7.0,electives_pdf
+2460,S2,Strategy Consulting,7.0,electives_pdf
+2477,S2,Introduction to Programming,7.0,electives_pdf
+2483,S2,Applied Social Entrepreneurship,7.0,electives_pdf
+2484,S2,Corporate Strategy and Transformation,7.0,electives_pdf
+2485,S2,Innovation and Value Creation Wheel,7.0,electives_pdf
+2580,S2,Value-Based Health Care,7.0,electives_pdf
+2585,S2,Evidence-Based Practices for Wellbeing,7.0,electives_pdf
+2610,S2,Business Analytics Special Project,7.0,electives_pdf
+2620,S2,Special Course L'Oreal Brandstorm Competition,7.0,electives_pdf
+2638,S2,Design Thinking for Social Innovation,7.0,electives_pdf
+2652,S2,Fundamentals on Environment and Sustainability,7.0,electives_pdf
+2660,S2,Applied Sports Projects,3.5,electives_pdf
+2661,S2,Better Marketing for Consumer Wellbeing,7.0,electives_pdf
+2695,S2,Introduction to Machine Learning,7.0,electives_pdf
+2698,S2,Management Consulting,7.0,electives_pdf
+2784,S2,Curricular Internship - Semestral,7.0,electives_pdf
+2800,S2,Extracurricular Internship - Semestral,0.0,electives_pdf
+2972,S2,European Law,7.0,electives_pdf
+2128,T1,Competition Policy,3.5,electives_pdf
+2193,T1,Behavioral Economics and Finance,3.5,electives_pdf
+2233,T1,Macroeconomics of Financial Markets,3.5,electives_pdf
+2238,T1,Financial Reporting,3.5,electives_pdf
+2240,T1,Financial Intermediation,3.5,electives_pdf
+2243,T1,Real Estate Finance,3.5,electives_pdf
+2257,T1,Futures and Options,3.5,electives_pdf
+2278,T1,Sustainable Finance,3.5,electives_pdf
+2329,T1,Consumer and Managerial Decision Making,3.5,electives_pdf
+2332,T1,Entrepreneurship,3.5,electives_pdf
+2337,T1,Integrated Marketing Communications,3.5,electives_pdf
+2338,T1,International Business,3.5,electives_pdf
+2352,T1,Quality Management,3.5,electives_pdf
+2364,T1,Venture Simulation,3.5,electives_pdf
+2375,T1,Corporate Social Responsibility,3.5,electives_pdf
+2376,T1,Project Management,3.5,electives_pdf
+2389,T1,Customer Relationship Management,3.5,electives_pdf
+2416,T1,Family Business,3.5,electives_pdf
+2446,T1,Small Business Management,3.5,electives_pdf
+2448,T1,Business Model Innovation,3.5,electives_pdf
+2454,T1,Doing Business in China,3.5,electives_pdf
+2468,T1,Technology Strategy,3.5,electives_pdf
+2473,T1,Negotiation,3.5,electives_pdf
+2480,T1,Digital Strategy and Transformation,3.5,electives_pdf
+2481,T1,Product Design and Development,3.5,electives_pdf
+2490,T1,Geoeconomics and International Relations,3.5,electives_pdf
+2496,T1,Strategic Foresight and Scenario Planning,3.5,electives_pdf
+2599,T1,Project Scoping,3.5,electives_pdf
+2613,T1,Asian Brands,3.5,electives_pdf
+2618,T1,Risk and Crisis Management,3.5,electives_pdf
+2639,T1,Entrepreneurial Strategy,3.5,electives_pdf
+2643,T1,Social Media Marketing,3.5,electives_pdf
+2688,T1,Curricular Internship - Trimestral,3.5,electives_pdf
+2689,T1,Hospitality Trends,3.5,electives_pdf
+2768,T1,Personal Finance,3.5,electives_pdf
+2772,T1,Research Methods for Finance,3.5,electives_pdf
+2792,T1,AI in Organizations,3.5,electives_pdf
+2799,T1,Extracurricular Internship - Trimestral,0.0,electives_pdf
+2971,T1,Investor Relations & Global Disclosure,3.5,electives_pdf
+2194,T2,History of Economic Analysis,3.5,electives_pdf
+2204,T2,"Mergers, Acquisitions, Restructuring",3.5,electives_pdf
+2215,T2,Auditing,3.5,electives_pdf
+2217,T2,Corporate Governance,3.5,electives_pdf
+2218,T2,Derivatives,3.5,electives_pdf
+2222,T2,Financial Statement Analysis,3.5,electives_pdf
+2236,T2,Private Equity,3.5,electives_pdf
+2240,T2,Financial Intermediation,3.5,electives_pdf
+2277,T2,Impact Investments,3.5,electives_pdf
+2329,T2,Consumer and Managerial Decision Making,3.5,electives_pdf
+2330,T2,Consumer Behavior,3.5,electives_pdf
+2337,T2,Integrated Marketing Communications,3.5,electives_pdf
+2339,T2,International Marketing Strategy,3.5,electives_pdf
+2346,T2,Modeling Business Decisions,3.5,electives_pdf
+2359,T2,Operations Management,3.5,electives_pdf
+2388,T2,Leadership and Change Management,3.5,electives_pdf
+2440,T2,Big Data Analysis,3.5,electives_pdf
+2441,T2,Digital Marketing,3.5,electives_pdf
+2446,T2,Small Business Management,3.5,electives_pdf
+2448,T2,Business Model Innovation,3.5,electives_pdf
+2468,T2,Technology Strategy,3.5,electives_pdf
+2480,T2,Digital Strategy and Transformation,3.5,electives_pdf
+2491,T2,Data Visualization,3.5,electives_pdf
+2493,T2,Marketing Analytics,3.5,electives_pdf
+2498,T2,Luxury Seminar,3.5,electives_pdf
+2588,T2,Science-Based Entrepreneurship and Innovation,3.5,electives_pdf
+2621,T2,Algorithmic Governance,3.5,electives_pdf
+2622,T2,Blockchain Fundamentals,3.5,electives_pdf
+2649,T2,Energy and Climate Change,3.5,electives_pdf
+2651,T2,Digital Transformation in Hospitality,3.5,electives_pdf
+2688,T2,Curricular Internship - Trimestral,3.5,electives_pdf
+2690,T2,Shopper Marketing Management,3.5,electives_pdf
+2691,T2,Climate Finance,3.5,electives_pdf
+2694,T2,Leading Transformation,3.5,electives_pdf
+2745,T2,Politics for Policy,3.5,electives_pdf
+2751,T2,Sustainable Marketing,3.5,electives_pdf
+2778,T2,Cybersecurity in Organizations,3.5,electives_pdf
+2785,T2,Product Management in Technology,3.5,electives_pdf
+2791,T2,Advanced Product Design,3.5,electives_pdf
+2793,T2,Supply Chain Management,3.5,electives_pdf
+2796,T2,Economics of the European Union,3.5,electives_pdf
+2799,T2,Extracurricular Internship - Trimestral,0.0,electives_pdf
+2134,T3,Economics of Education,3.5,electives_pdf
+2135,T3,Economics of Health and Health Care,3.5,electives_pdf
+2138,T3,Environmental Policy,3.5,electives_pdf
+2145,T3,Labor Economics,3.5,electives_pdf
+2173,T3,Macroeconomic Theory,3.5,electives_pdf
+2181,T3,Policy Evaluation,3.5,electives_pdf
+2184,T3,Political Economy,3.5,electives_pdf
+2185,T3,Game Theory,3.5,electives_pdf
+2193,T3,Behavioral Economics and Finance,3.5,electives_pdf
+2196,T3,International Migration,3.5,electives_pdf
+2214,T3,Asset Management,3.5,electives_pdf
+2215,T3,Auditing,3.5,electives_pdf
+2217,T3,Corporate Governance,3.5,electives_pdf
+2218,T3,Derivatives,3.5,electives_pdf
+2226,T3,Hedge Funds,3.5,electives_pdf
+2236,T3,Private Equity,3.5,electives_pdf
+2238,T3,Financial Reporting,3.5,electives_pdf
+2239,T3,Corporate Valuation,3.5,electives_pdf
+2273,T3,Fintech Ventures,3.5,electives_pdf
+2277,T3,Impact Investments,3.5,electives_pdf
+2330,T3,Consumer Behavior,3.5,electives_pdf
+2332,T3,Entrepreneurship,3.5,electives_pdf
+2334,T3,Global Human Resources Management,3.5,electives_pdf
+2337,T3,Integrated Marketing Communications,3.5,electives_pdf
+2338,T3,International Business,3.5,electives_pdf
+2339,T3,International Marketing Strategy,3.5,electives_pdf
+2352,T3,Quality Management,3.5,electives_pdf
+2359,T3,Operations Management,3.5,electives_pdf
+2371,T3,"CIRCULAR ECONOMY: Eliminate, Circulate and Regenerate",3.5,electives_pdf
+2389,T3,Customer Relationship Management,3.5,electives_pdf
+2416,T3,Family Business,3.5,electives_pdf
+2448,T3,Business Model Innovation,3.5,electives_pdf
+2451,T3,Operations Strategy,3.5,electives_pdf
+2465,T3,Open Innovation,3.5,electives_pdf
+2490,T3,Geoeconomics and International Relations,3.5,electives_pdf
+2496,T3,Strategic Foresight and Scenario Planning,3.5,electives_pdf
+2612,T3,Advanced Programming for Data Science,3.5,electives_pdf
+2613,T3,Asian Brands,3.5,electives_pdf
+2614,T3,Revenue Management,3.5,electives_pdf
+2616,T3,Cracking the Sales Code,3.5,electives_pdf
+2622,T3,Blockchain Fundamentals,3.5,electives_pdf
+2635,T3,Organizing for Good in the digital age,3.5,electives_pdf
+2636,T3,Brands and Marketing in Asia's Emerging Markets,3.5,electives_pdf
+2643,T3,Social Media Marketing,3.5,electives_pdf
+2646,T3,Strategic Costing,3.5,electives_pdf
+2656,T3,Work & Family,3.5,electives_pdf
+2657,T3,Hospitality Operations Management,3.5,electives_pdf
+2667,T3,Service Excellence,3.5,electives_pdf
+2668,T3,"Sustainability Evaluation of Policies, Plans and Projects",3.5,electives_pdf
+2685,T3,Applied Quantitative Studies,3.5,electives_pdf
+2688,T3,Curricular Internship - Trimestral,3.5,electives_pdf
+2691,T3,Climate Finance,3.5,electives_pdf
+2699,T3,Sports Club Management,3.5,electives_pdf
+2715,T3,Sustainable Tourism,3.5,electives_pdf
+2752,T3,Team Dynamics in Organizations,3.5,electives_pdf
+2768,T3,Personal Finance,3.5,electives_pdf
+2770,T3,Power and Social Change,3.5,electives_pdf
+2793,T3,Supply Chain Management,3.5,electives_pdf
+2795,T3,Innovations in the Experience Economy,3.5,electives_pdf
+2799,T3,Extracurricular Internship - Trimestral,0.0,electives_pdf
+2964,T3,AI for Economics and Business,3.5,electives_pdf
+2970,T3,Services Marketing,3.5,electives_pdf
+2131,T4,Economic Growth,3.5,electives_pdf
+2141,T4,Global Energy Markets,3.5,electives_pdf
+2158,T4,Economics of Health Systems,3.5,electives_pdf
+2185,T4,Game Theory,3.5,electives_pdf
+2197,T4,Advanced Behavioral Economics,3.5,electives_pdf
+2215,T4,Auditing,3.5,electives_pdf
+2218,T4,Derivatives,3.5,electives_pdf
+2225,T4,Risk Management,3.5,electives_pdf
+2226,T4,Hedge Funds,3.5,electives_pdf
+2233,T4,Macroeconomics of Financial Markets,3.5,electives_pdf
+2235,T4,Credit Risk,3.5,electives_pdf
+2236,T4,Private Equity,3.5,electives_pdf
+2239,T4,Corporate Valuation,3.5,electives_pdf
+2240,T4,Financial Intermediation,3.5,electives_pdf
+2243,T4,Real Estate Finance,3.5,electives_pdf
+2248,T4,Fixed Income,3.5,electives_pdf
+2279,T4,Islamic Finance,3.5,electives_pdf
+2281,T4,Behavioral Finance,3.5,electives_pdf
+2282,T4,Sovereign Advisory,3.5,electives_pdf
+2330,T4,Consumer Behavior,3.5,electives_pdf
+2332,T4,Entrepreneurship,3.5,electives_pdf
+2338,T4,International Business,3.5,electives_pdf
+2351,T4,Pricing Strategies,3.5,electives_pdf
+2359,T4,Operations Management,3.5,electives_pdf
+2375,T4,Corporate Social Responsibility,3.5,electives_pdf
+2397,T4,Innovation Management,3.5,electives_pdf
+2417,T4,Management of Non-Profit Organizations,3.5,electives_pdf
+2418,T4,WPP Master class,3.5,electives_pdf
+2441,T4,Digital Marketing,3.5,electives_pdf
+2442,T4,Design and Construction of Data Centric Apps,3.5,electives_pdf
+2448,T4,Business Model Innovation,3.5,electives_pdf
+2458,T4,Talent Development,3.5,electives_pdf
+2465,T4,Open Innovation,3.5,electives_pdf
+2473,T4,Negotiation,3.5,electives_pdf
+2475,T4,Sales and Retailing,3.5,electives_pdf
+2491,T4,Data Visualization,3.5,electives_pdf
+2500,T4,Performance and Progress,3.5,electives_pdf
+2588,T4,Science-Based Entrepreneurship and Innovation,3.5,electives_pdf
+2590,T4,Leading Social Enterprises with Impact in International Development,3.5,electives_pdf
+2592,T4,Strategy Implementation,3.5,electives_pdf
+2616,T4,Cracking the Sales Code,3.5,electives_pdf
+2623,T4,Network Analytics,3.5,electives_pdf
+2635,T4,Organizing for Good in the digital age,3.5,electives_pdf
+2644,T4,Sustainable Operations,3.5,electives_pdf
+2647,T4,Strategic Planning and Control,3.5,electives_pdf
+2656,T4,Work & Family,3.5,electives_pdf
+2663,T4,AI Impact on Business,3.5,electives_pdf
+2673,T4,Decentralized Finance,3.5,electives_pdf
+2675,T4,European Union: Governance and Crises,3.5,electives_pdf
+2676,T4,Finance and the transition to net zero,3.5,electives_pdf
+2685,T4,Applied Quantitative Studies,3.5,electives_pdf
+2687,T4,Public Policy,3.5,electives_pdf
+2688,T4,Curricular Internship - Trimestral,3.5,electives_pdf
+2690,T4,Shopper Marketing Management,3.5,electives_pdf
+2708,T4,Sports Marketing,3.5,electives_pdf
+2716,T4,Regenerative Business,3.5,electives_pdf
+2737,T4,Private Sector Development,3.5,electives_pdf
+2749,T4,Management in the Public Sector,3.5,electives_pdf
+2751,T4,Sustainable Marketing,3.5,electives_pdf
+2752,T4,Team Dynamics in Organizations,3.5,electives_pdf
+2753,T4,Tourism & Hospitality Consulting,3.5,electives_pdf
+2755,T4,Advanced Financial Transactions in M&A,3.5,electives_pdf
+2757,T4,Hotel Asset Management,3.5,electives_pdf
+2758,T4,Advanced Topics in Machine Learning,3.5,electives_pdf
+2768,T4,Personal Finance,3.5,electives_pdf
+2770,T4,Power and Social Change,3.5,electives_pdf
+2772,T4,Research Methods for Finance,3.5,electives_pdf
+2775,T4,Investment Philosophies,3.5,electives_pdf
+2776,T4,Hotel Investment and Development,3.5,electives_pdf
+2778,T4,Cybersecurity in Organizations,3.5,electives_pdf
+2779,T4,Engineering of Data Analysis,3.5,electives_pdf
+2788,T4,Aviation Management,3.5,electives_pdf
+2799,T4,Extracurricular Internship - Trimestral,0.0,electives_pdf
+2959,T4,Private Equity and Financial Restructuring,3.5,electives_pdf
+2960,T4,Blue Finance,3.5,electives_pdf
+2961,T4,Economics of Immigration,3.5,electives_pdf
+2962,T4,AI for Finance,3.5,electives_pdf
+2968,T4,The Luxury Value Chain,3.5,electives_pdf
+2969,T4,E-Commerce: Strategy & Disruption,3.5,electives_pdf

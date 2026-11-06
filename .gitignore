@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.env*
+.DS_Store
+# personal data (lecturer names): never commit
+data/private/
+*.sqlite

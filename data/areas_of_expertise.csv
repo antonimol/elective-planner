@@ -1,0 +1,16 @@
+program_id,aoe_id,name
+ECON,BDA,Business & Data Analytics
+ECON,ID,International Development
+ECON,MFM,Macroeconomics & Financial Markets
+ECON,PP,Public Policy
+ECON,SUST,Sustainability
+FIN,CF,Corporate Finance
+FIN,FM,Financial Markets
+MGMT,DDD,Digital & Data-Driven Business
+MGMT,ENTREP,Entrepreneurship
+MGMT,FM,Financial Management
+MGMT,MARKT,Marketing
+MGMT,OM,Operations Management
+MGMT,SIB,Strategy & International Business
+MGMT,SUST,Sustainability
+MGMT,WS_LM,Luxury Management (stream)

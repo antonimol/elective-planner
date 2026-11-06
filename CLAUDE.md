@@ -3,7 +3,7 @@
 Web tool for Nova SBE MSc students: pick a program and section, see the timetable (T1/T2 toggle), add electives, track ECTS, and get warnings about class and exam clashes. Full requirements: `docs/SPEC.md`. Data notes and quality caveats: `docs/DATA_NOTES.md`.
 
 ## Stack
-React 19 + TypeScript + Vite, static app, data from `data/schedule.public.json`, selection in `localStorage`. Tests with Vitest (`src/**/*.test.ts`), lint with oxlint. CI: `.github/workflows/ci.yml` runs lint, test and build on push and PRs. Node 24+ (see `.nvmrc`). Deploy: Vercel/Netlify/GitHub Pages.
+React 19 + TypeScript + Vite, static app, data from `data/schedule.public.json`, selection in `localStorage`. Tests with Vitest (`src/**/*.test.ts`), lint with oxlint. CI: `.github/workflows/ci.yml` runs lint, test and build on push and PRs. Node 24+ (see `.nvmrc`). Deploy: GitHub Pages via `.github/workflows/deploy.yml` on every push to `main` (Vite `base: './'`).
 
 ## Rules
 - Domain logic (clash detection, ECTS, exam clashes) lives in `src/lib/` as pure functions with unit tests. UI imports from there.

@@ -111,7 +111,7 @@ Known quirks (flagged in `offerings.flags`):
 
 - Static-first web app: React + TypeScript + Vite, data loaded from `data/schedule.public.json`, selection in `localStorage`. No server needed for the MVP, so hosting is free and no personal data of students is collected.
 - Clash and ECTS logic in a plain TypeScript module with unit tests (clash rule, S1 handling, exam clash).
-- Deployment to a static host (Vercel, Netlify or GitHub Pages), automatic deploy from the main branch.
+- Deployment to GitHub Pages, automatic deploy from the main branch (`.github/workflows/deploy.yml`).
 - v2 (accounts, saved selections, admin upload) needs a backend and database, for example Supabase.
 
 ## 9. Open questions and missing inputs

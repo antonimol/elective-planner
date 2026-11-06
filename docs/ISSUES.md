@@ -21,7 +21,7 @@ Milestone 4: UI
 12. [done] Persist selection in localStorage
 
 Milestone 5: Release
-13. Deploy to a static host
+13. [done: GitHub Pages] Deploy to a static host
 14. README screenshots and final docs
 
 Later

@@ -1,5 +1,7 @@
 node_modules/
 dist/
+*.local
+*.log
 .env*
 .DS_Store
 # personal data (lecturer names): never commit

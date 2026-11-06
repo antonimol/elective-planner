@@ -18,7 +18,17 @@ T3/T4 terms, alternative-offering suggestions, saved selections.
 The public data contains no lecturer names. Source schedules belong to Nova SBE.
 
 ## Development
-See `CLAUDE.md` for stack and commands.
+Requires Node 24+.
+
+```bash
+npm install
+npm run dev      # local dev server
+npm test         # unit tests (Vitest)
+npm run lint     # oxlint
+npm run build    # type-check and production build
+```
+
+See `CLAUDE.md` for stack and project rules.
 
 ## License
 TBD

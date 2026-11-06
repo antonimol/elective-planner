@@ -37,6 +37,7 @@ Goal: show the student's weekly timetable (mandatory courses plus chosen electiv
    - An **ECTS counter** (mandatory plus chosen electives).
    - A panel with **exam dates** of all courses on the plan.
    - Clashes are highlighted on the timetable and listed in a message area.
+   - A **Copy summary** button gives a plain-text version of the plan to paste elsewhere.
 
 ## 5. Functional requirements
 
@@ -52,6 +53,7 @@ Goal: show the student's weekly timetable (mandatory courses plus chosen electiv
 | FR-8 | A panel lists exam date and time per course on the plan, sorted by date. |
 | FR-9 | (Later) On a clash, look for another offering of the same course that does not clash and suggest it. |
 | FR-10 | The selection is stored locally in the browser and survives a page reload. |
+| FR-11 | "Copy summary" opens a plain-text summary of the plan (program, section, electives and mandatory courses with code, section, term, ECTS and class times; ECTS totals; clashes; exam dates sorted by date) with a button that copies it to the clipboard. |
 
 Clash rule as SQL (works on the schema in `schema.sql`):
 

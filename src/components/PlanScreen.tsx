@@ -2,12 +2,14 @@ import { useMemo, useState } from 'react'
 import { findClassClashes } from '../lib/clashes'
 import { findExamClashes } from '../lib/exams'
 import { electiveCatalog, mandatoryOfferings } from '../lib/schedule'
+import { buildPlanSummary } from '../lib/summary'
 import { addElective, planOfferings, removeElective, type Selection } from '../lib/selection'
 import type { Offering, Schedule, Term } from '../lib/types'
 import { ElectivePicker } from './ElectivePicker'
 import { ExamPanel } from './ExamPanel'
 import { Messages } from './Messages'
 import { PlanSummary } from './PlanSummary'
+import { SummaryDialog } from './SummaryDialog'
 import { TermToggle } from './TermToggle'
 import { Timetable } from './Timetable'
 
@@ -21,6 +23,7 @@ interface Props {
 export function PlanScreen({ schedule, selection, onChange, onChangeProgram }: Props) {
   const [term, setTerm] = useState<Term>('T1')
   const [preview, setPreview] = useState<Offering | null>(null)
+  const [summaryOpen, setSummaryOpen] = useState(false)
 
   const plan = useMemo(() => planOfferings(selection, schedule), [selection, schedule])
   const mandatoryIds = useMemo(
@@ -57,8 +60,18 @@ export function PlanScreen({ schedule, selection, onChange, onChangeProgram }: P
             Change program or section
           </button>
         </div>
-        <TermToggle term={term} onChange={setTerm} />
+        <div className="plan-bar-actions">
+          <button type="button" className="btn" onClick={() => setSummaryOpen(true)}>
+            Copy summary
+          </button>
+          <TermToggle term={term} onChange={setTerm} />
+        </div>
       </div>
+      <SummaryDialog
+        open={summaryOpen}
+        onClose={() => setSummaryOpen(false)}
+        text={summaryOpen ? buildPlanSummary(schedule, selection) : ''}
+      />
 
       <div className="plan-grid">
         <div className="plan-main">

@@ -15,7 +15,7 @@ React 19 + TypeScript + Vite, static app, data from `data/schedule.public.json`,
 - Keep `docs/SPEC.md` in sync with any behaviour change. Update the open questions list when one is answered.
 
 ## Code map
-- `src/lib/`: pure domain logic with tests (`schedule.ts` data + eligibility, `clashes.ts`, `exams.ts`, `ects.ts`, `selection.ts` incl. localStorage, `layout.ts` timetable lanes).
+- `src/lib/`: pure domain logic with tests (`schedule.ts` data + eligibility, `clashes.ts`, `exams.ts`, `ects.ts`, `selection.ts` incl. localStorage, `layout.ts` timetable lanes, `summary.ts` copyable plan text, `format.ts` display formatting).
 - `src/components/`: React UI. `src/data.ts` loads and normalises the JSON once.
 
 ## Commands

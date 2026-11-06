@@ -1,7 +1,7 @@
 import type { ExamClash } from '../lib/exams'
 import { sortedAssessments } from '../lib/exams'
 import type { Assessment, Offering } from '../lib/types'
-import { assessmentTime, formatDate, KIND_LABEL } from '../format'
+import { assessmentTime, formatDate, KIND_LABEL } from '../lib/format'
 
 interface Props {
   offerings: Offering[]

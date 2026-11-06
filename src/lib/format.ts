@@ -1,5 +1,5 @@
-import { formatMinutes } from './lib/time'
-import type { Assessment, Meeting, Offering } from './lib/types'
+import { formatMinutes } from './time'
+import type { Assessment, Meeting, Offering } from './types'
 
 export const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'] as const
 
@@ -11,8 +11,14 @@ export function offeringLabel(o: Offering): string {
   return `${o.title} (${o.section}, ${o.termType})`
 }
 
+const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+
+/** "2026-10-19" -> "Mon 19 Oct" (independent of the browser locale and time zone). */
 export function formatDate(iso: string): string {
-  return new Date(`${iso}T00:00:00`).toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short' })
+  const [y, m, d] = iso.split('-').map(Number)
+  const date = new Date(Date.UTC(y, m - 1, d))
+  return `${WEEKDAYS[date.getUTCDay()]} ${d} ${MONTHS[m - 1]}`
 }
 
 export function assessmentTime(a: Assessment): string {

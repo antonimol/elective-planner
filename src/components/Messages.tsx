@@ -1,7 +1,7 @@
 import type { ClassClash } from '../lib/clashes'
 import type { ExamClash } from '../lib/exams'
 import type { Schedule } from '../lib/types'
-import { assessmentTime, formatDate, KIND_LABEL, meetingLabel, offeringLabel } from '../format'
+import { assessmentTime, formatDate, KIND_LABEL, meetingLabel, offeringLabel } from '../lib/format'
 
 interface Props {
   schedule: Schedule

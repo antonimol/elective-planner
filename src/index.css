@@ -142,6 +142,51 @@ main {
   }
 }
 
+.plan-bar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Summary dialog */
+.summary-dialog {
+  width: min(720px, calc(100vw - 2rem));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  color: var(--text);
+}
+.summary-dialog::backdrop {
+  background: rgba(20, 28, 40, 0.45);
+}
+.summary-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+.summary-head h2 {
+  margin: 0;
+}
+.summary-dialog textarea {
+  width: 100%;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  padding: 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  resize: vertical;
+  background: var(--bg);
+}
+.summary-dialog .actions {
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.75rem;
+}
+
 /* Buttons and controls */
 .btn {
   border: 1px solid var(--border);
@@ -356,6 +401,7 @@ legend {
 .timetable {
   --time-col: 52px;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 .tt-head,
 .tt-body {
@@ -384,6 +430,9 @@ legend {
 }
 .tt-times span:first-child {
   transform: none;
+}
+.tt-times span:last-child {
+  transform: translateY(-100%);
 }
 .tt-day {
   position: relative;
@@ -417,11 +466,20 @@ legend {
 }
 .tt-block strong {
   font-size: 0.76rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
+  flex: none;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+.tt-block.narrow {
+  font-size: 0.66rem;
+  padding: 2px 3px;
+}
+.tt-block.narrow strong {
+  font-size: 0.68rem;
+}
+.tt-meta {
+  color: var(--muted);
+  margin-top: 1px;
 }
 .tt-block.mandatory {
   background: var(--mandatory-bg);

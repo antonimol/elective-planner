@@ -3,7 +3,7 @@ import { clashesWithPlan } from '../lib/clashes'
 import { findExamClashes } from '../lib/exams'
 import type { ElectiveCatalog, ElectiveCourse } from '../lib/schedule'
 import type { AreaOfExpertise, CourseType, Offering, TermType } from '../lib/types'
-import { formatDate, formatEcts, meetingLabel } from '../format'
+import { formatDate, formatEcts, meetingLabel } from '../lib/format'
 
 const AOE_TYPE_LABEL: Partial<Record<CourseType, string>> = {
   CORE: 'Area core',

@@ -2,11 +2,11 @@ import { showsInTerm } from '../lib/clashes'
 import { assignLanes } from '../lib/layout'
 import { formatMinutes } from '../lib/time'
 import type { Meeting, Offering, Term } from '../lib/types'
-import { DAYS } from '../format'
+import { DAYS } from '../lib/format'
 
 const DAY_START = 8 * 60
 const DAY_END = 21 * 60 + 30
-const PX_PER_MIN = 0.8
+const PX_PER_MIN = 1
 const BANDS = [480, 570, 660, 750, 840, 930, 1020, 1110, 1200, 1290]
 const LUNCH = { start: 840, end: 930 }
 
@@ -72,7 +72,7 @@ export function Timetable({ offerings, term, mandatoryIds, clashingMeetingIds, p
                   <div
                     key={key(b)}
                     role="cell"
-                    className={`tt-block ${kind} ${clash ? 'clash' : ''}`}
+                    className={`tt-block ${kind} ${clash ? 'clash' : ''} ${place.lanes > 1 ? 'narrow' : ''}`}
                     style={{
                       top: y(b.meeting.start),
                       height: (b.meeting.end - b.meeting.start) * PX_PER_MIN,
@@ -84,12 +84,11 @@ export function Timetable({ offerings, term, mandatoryIds, clashingMeetingIds, p
                     }${clash ? '\nClashes with another course' : ''}`}
                   >
                     <strong>{b.offering.title}</strong>
-                    <span>
-                      {b.offering.section}
-                      {b.offering.termType === 'S1' ? ' · S1' : ''}
+                    <span className="tt-meta">
+                      {[b.offering.section, b.offering.termType === 'S1' ? 'S1' : null, time, b.meeting.room]
+                        .filter(Boolean)
+                        .join(' · ')}
                     </span>
-                    <span>{time}</span>
-                    {b.meeting.room && <span>{b.meeting.room}</span>}
                     {clash && <span className="tt-clash-tag">Clash</span>}
                   </div>
                 )

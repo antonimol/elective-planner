@@ -1,6 +1,6 @@
 import { ectsSummary } from '../lib/ects'
 import type { Offering } from '../lib/types'
-import { formatEcts } from '../format'
+import { formatEcts } from '../lib/format'
 
 interface Props {
   offerings: Offering[]

@@ -1,10 +1,10 @@
 import { describe, expect, it } from 'vitest'
 import { buildSchedule, exam, rawOffering } from './__fixtures__/build'
-import { findExamClashes, parseAssessment, sortedAssessments } from './exams'
+import { findExamClashes, findSameDayAssessments, parseAssessment, sortedAssessments } from './exams'
 
 describe('parseAssessment', () => {
-  it('assumes 3 h for a start slot', () => {
-    expect(parseAssessment(exam('2026-10-19', '14:30'), 'X', 'TXA')).toMatchObject({ start: 870, end: 1050 })
+  it('assumes 1.5 h for a start slot', () => {
+    expect(parseAssessment(exam('2026-10-19', '14:30'), 'X', 'TXA')).toMatchObject({ start: 870, end: 960 })
   })
   it('parses an explicit range', () => {
     expect(parseAssessment(exam('2026-10-14', '09:00-12:00', 'presentation'), 'X', 'TXA')).toMatchObject({ start: 540, end: 720 })
@@ -48,6 +48,11 @@ describe('findExamClashes', () => {
   })
   it('same date with unknown time is a warning', () => {
     expect(findExamClashes(o('A', 'F'))).toEqual([expect.objectContaining({ severity: 'warning', timeUnknown: true })])
+  })
+  it('same date, different slots: same-day pair, not a clash', () => {
+    expect(findSameDayAssessments(o('A', 'C')).map((p) => [p.a.offeringId, p.b.offeringId])).toEqual([['C', 'A']])
+    expect(findSameDayAssessments(o('A', 'B'))).toEqual([])
+    expect(findSameDayAssessments(o('A', 'F'))).toEqual([])
   })
   it('sorts assessments by date and time', () => {
     expect(sortedAssessments(o('D', 'A', 'C')).map((a) => a.offeringId)).toEqual(['C', 'A', 'D'])

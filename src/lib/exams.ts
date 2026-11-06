@@ -1,8 +1,8 @@
 import { formatMinutes, rangesOverlap, toMinutes } from './time'
 import type { Assessment, Offering, RawAssessment } from './types'
 
-/** The source gives only start times; every assessment is assumed to last 3 hours. */
-export const ASSESSMENT_DURATION_MIN = 180
+/** The source gives only start times; every assessment is assumed to last at most 1.5 hours. */
+export const ASSESSMENT_DURATION_MIN = 90
 
 /**
  * Turn a raw exam row into an Assessment for one offering.
@@ -68,6 +68,27 @@ export function findExamClashes(offerings: Offering[]): ExamClash[] {
     }
   }
   return clashes
+}
+
+export interface SameDayPair {
+  a: Assessment
+  b: Assessment
+}
+
+/** Assessments of different offerings on the same date that do not overlap (both times known). */
+export function findSameDayAssessments(offerings: Offering[]): SameDayPair[] {
+  const all = sortedAssessments(offerings)
+  const pairs: SameDayPair[] = []
+  for (let i = 0; i < all.length; i++) {
+    for (let j = i + 1; j < all.length; j++) {
+      const a = all[i]
+      const b = all[j]
+      if (a.offeringId === b.offeringId || a.date !== b.date) continue
+      if (a.start === null || a.end === null || b.start === null || b.end === null) continue
+      if (!rangesOverlap(a.start, a.end, b.start, b.end)) pairs.push({ a, b })
+    }
+  }
+  return pairs
 }
 
 /** All assessments of the plan sorted by date, then time. */

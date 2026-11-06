@@ -29,6 +29,8 @@ Goal: show the student's weekly timetable (mandatory courses plus chosen electiv
 
 ## 4. User flow
 
+The UI is in Polish (course titles stay in English) and follows `docs/DESIGN.md`. A step nav at the top switches between Program, Plan, Electivy, Egzaminy and Podsumowanie.
+
 1. **Screen 1, "Who are you?"** The student picks a **program** (kierunek) and then a **section**. Sections (TXA, TXB, ...) exist because a program has many students, so each program is split into parallel groups with the same courses at different times. Both choices are on this first screen and together determine the mandatory courses. Sections per program: Business Analytics A-C, Economics A, Finance A-H, Management A-J, IDPP A-B, Impact Entrepreneurship and Innovation A-B.
 2. **Screen 2, "My plan".**
    - Weekly timetable (Mon-Fri) with a **T1 / T2 toggle**. Courses that run the whole semester (type S1) appear in both views.
@@ -37,7 +39,7 @@ Goal: show the student's weekly timetable (mandatory courses plus chosen electiv
    - An **ECTS counter** (mandatory plus chosen electives).
    - A panel with **exam dates** of all courses on the plan.
    - Clashes are highlighted on the timetable and listed in a message area.
-   - A **Copy summary** button gives a plain-text version of the plan to paste elsewhere.
+   - Electives, exams and the copyable summary (Podsumowanie) are separate steps in the nav.
 
 ## 5. Functional requirements
 
@@ -49,11 +51,11 @@ Goal: show the student's weekly timetable (mandatory courses plus chosen electiv
 | FR-4 | Timetable per term. A meeting with term span `T1` shows only in T1, `T2` only in T2, `T1+T2` (type S1) in both. |
 | FR-5 | The ECTS counter shows the semester total and the ECTS of T1, T2 and S1 courses separately, plus the load per term (term courses plus half of each S1 course). S1 courses count 7 ECTS, T1/T2 courses 3.5. ECTS inferred from the term length are marked with `*`. The required minimum or maximum is **OPEN**. |
 | FR-6 | **Class clash:** two meetings clash if they are on the same day, their time ranges overlap, and their term spans intersect. A clash is shown on the timetable and in the message area. |
-| FR-7 | **Exam clash (error):** two final exams (kind `exam`) of different courses on the plan with the same date and overlapping times are a blocking error. Each assessment is treated as 3 h from its start slot; an explicit range (`09:00-12:00`) is used as given; per-section times in the note (`TXB - 11:00 & TXA - 15:30`) are resolved for the offering's section. Overlaps that involve a midterm or presentation, and two assessments on the same date where a time is unknown, are **warnings** (see open question 11). Exam dates come from the exams calendar. |
-| FR-8 | A panel lists exam date and time per course on the plan, sorted by date. |
+| FR-7 | **Exam clash (error):** two final exams (kind `exam`) of different courses on the plan with the same date and overlapping times are a blocking error. Each assessment is treated as 1.5 h (maximum length) from its start slot; an explicit range (`09:00-12:00`) is used as given; per-section times in the note (`TXB - 11:00 & TXA - 15:30`) are resolved for the offering's section. Overlaps that involve a midterm or presentation, and two assessments on the same date where a time is unknown, are **warnings** (see open question 11). Exam dates come from the exams calendar. |
+| FR-8 | An exams screen lists exam date and time per course on the plan, sorted by date. Assessments of different courses on the same date that do not overlap are marked "ten sam dzień" (information, not an error). |
 | FR-9 | (Later) On a clash, look for another offering of the same course that does not clash and suggest it. |
 | FR-10 | The selection is stored locally in the browser and survives a page reload. |
-| FR-11 | "Copy summary" opens a plain-text summary of the plan (program, section, electives and mandatory courses with code, section, term, ECTS and class times; ECTS totals; clashes; exam dates sorted by date) with a button that copies it to the clipboard. |
+| FR-11 | The Podsumowanie step shows a plain-text summary of the plan (program, section, electives and mandatory courses with code, section, term, ECTS and class times; ECTS totals; clashes; exam dates sorted by date) with a button that copies it to the clipboard. |
 
 Clash rule as SQL (works on the schema in `schema.sql`):
 
@@ -121,7 +123,7 @@ Known quirks (flagged in `offerings.flags`):
 Resolved since v0.1: exam dates (loaded), ECTS of electives (loaded), elective eligibility per program (loaded from the lists), meaning of sections (parallel groups).
 
 1. **ECTS of mandatory courses.** Not in the lists. 120 offerings use S1 = 7 and T = 3.5 as an assumption (`ects_source = inferred_from_term`). Confirm in `fill_in_ects.csv`.
-2. **Exam dates.** Now loaded from the exams calendar PDF (v15 Jul 2026). Only the start time is given (slots 08:30, 11:30, 14:30, 17:30), so exam length is assumed to be 3 h per slot. Exams are per course and term, not per section (one exception: Financial Reporting midterm, TXB 11:00 and TXA 15:30).
+2. **Exam dates.** Now loaded from the exams calendar PDF (v15 Jul 2026). Only the start time is given (slots 08:30, 11:30, 14:30, 17:30); exams last at most 1.5 h, so each is treated as 1.5 h from its start. Exams are per course and term, not per section (one exception: Financial Reporting midterm, TXB 11:00 and TXA 15:30).
 3. **Management sections TXB and TXC.** Their mandatory offerings overlap (for example Advanced Financial Management and Human Resources Management are both Wednesday 11:00-12:30 in TXB). This is not explained by the Areas of Expertise lists, so it still needs a decision from the programme office (a real clash, a choice between courses, or colouring errors).
 4. **ECTS rules.** Required minimum and maximum ECTS per term and semester, and the number of electives a student must take.
 5. **Out-of-program electives.** Courses of type OUT_PROGRAM (152 offerings in the Fall terms across programs): can students take them, and how many ECTS at most?

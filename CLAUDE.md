@@ -8,15 +8,16 @@ React 19 + TypeScript + Vite, static app, data from `data/schedule.public.json`,
 ## Rules
 - Domain logic (clash detection, ECTS, exam clashes) lives in `src/lib/` as pure functions with unit tests. UI imports from there.
 - Class clash: same day, overlapping time, intersecting term spans. `T1+T2` (type S1) intersects both terms.
-- Exam clash: same date and overlapping time, each assessment treated as 3 h from its start slot (08:30, 11:30, 14:30, 17:30). Two final exams clashing is a blocking error; overlaps involving midterms/presentations, or same date with unknown time, are warnings.
+- Exam clash: same date and overlapping time, each assessment treated as 1.5 h (max length) from its start slot (08:30, 11:30, 14:30, 17:30). Same date without overlap = "ten sam dzień" info. Two final exams clashing is a blocking error; overlaps involving midterms/presentations, or same date with unknown time, are warnings.
 - Mandatory courses come from `offering_programs` (status `mandatory`); electives come from `program_courses`, NOT from colours.
 - Never commit lecturer names. `data/private/` is git-ignored; `schedule.public.json` has empty `professors`.
-- Code and docs in English. Talk to the user in Polish.
+- Code and docs in English. UI copy in Polish (course titles stay English). Talk to the user in Polish.
+- Visual design: `docs/DESIGN.md` ("Raw Index": white, 1px ink rules, blue #002FA7, signal #FF5A1F for clashes only, Cormorant Garamond + Hanken Grotesk, no radius/shadows).
 - Keep `docs/SPEC.md` in sync with any behaviour change. Update the open questions list when one is answered.
 
 ## Code map
 - `src/lib/`: pure domain logic with tests (`schedule.ts` data + eligibility, `clashes.ts`, `exams.ts`, `ects.ts`, `selection.ts` incl. localStorage, `layout.ts` timetable lanes, `summary.ts` copyable plan text, `format.ts` display formatting).
-- `src/components/`: React UI. `src/data.ts` loads and normalises the JSON once.
+- `src/components/`: React UI, one view per step (`ProgramPicker`, `PlanView`, `ElectivesView`, `ExamsView`, `SummaryView`), shared state via `usePlan`. `src/data.ts` loads and normalises the JSON once.
 
 ## Commands
 `npm install`, `npm run dev`, `npm test` (`npm run test:watch` for watch mode), `npm run lint`, `npm run build`.

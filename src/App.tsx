@@ -20,9 +20,12 @@ const tipsStore = createTipsStore(safeLocalStorage())
 
 function App() {
   const [selection, setSelection] = useState<Selection | null>(() => loadSelection(window.localStorage, schedule))
-  const [editing, setEditing] = useState(false)
-  // The tour starts the first time the plan screen is shown (on load or after picking a program).
-  const [tipStep, setTipStep] = useState<TipStep | null>(() => (selection && !tipsStore.seen() ? 1 : null))
+  // The link always opens on the program and section picker; a saved choice is preselected there.
+  const [editing, setEditing] = useState(true)
+  // Cancel (back to the plan) only makes sense once the plan has been opened in this visit.
+  const [planOpened, setPlanOpened] = useState(false)
+  // The tour starts the first time the plan screen is shown (after picking a program).
+  const [tipStep, setTipStep] = useState<TipStep | null>(null)
 
   useEffect(() => saveSelection(window.localStorage, selection), [selection])
 
@@ -44,6 +47,7 @@ function App() {
     )
     setSelection(next)
     setEditing(false)
+    setPlanOpened(true)
     if (!tipsStore.seen()) setTipStep(1)
   }
 
@@ -61,7 +65,7 @@ function App() {
             initialProgram={selection?.programId}
             initialSection={selection?.section}
             onConfirm={confirm}
-            onCancel={selection ? () => setEditing(false) : undefined}
+            onCancel={selection && planOpened ? () => setEditing(false) : undefined}
           />
         ) : (
           <PlanScreen

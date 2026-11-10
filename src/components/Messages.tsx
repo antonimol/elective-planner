@@ -1,6 +1,6 @@
 import type { ClassClash } from '../lib/clashes'
 import type { ExamClash, SameDayPair } from '../lib/exams'
-import { assessmentStart, formatDate, KIND_LABEL, meetingLabel } from '../lib/format'
+import { assessmentTime, formatDate, KIND_LABEL, meetingLabel, offeringLabel } from '../lib/format'
 import type { Schedule } from '../lib/types'
 
 interface Props {
@@ -11,58 +11,48 @@ interface Props {
 }
 
 export function Messages({ schedule, classClashes, examClashes, sameDay }: Props) {
+  const name = (id: string) => {
+    const o = schedule.offeringsById.get(id)
+    return o ? offeringLabel(o) : id
+  }
   const title = (id: string) => schedule.offeringsById.get(id)?.title ?? id
   const errors = examClashes.filter((c) => c.severity === 'error')
   const warnings = examClashes.filter((c) => c.severity === 'warning')
 
   if (classClashes.length + examClashes.length + sameDay.length === 0) {
     return (
-      <div className="messages" role="status">
-        <p className="msg">
-          <span className="msg-label">✓ Brak kolizji w planie.</span>
-        </p>
-      </div>
+      <section className="messages" role="status" aria-label="Clashes">
+        <p className="msg">✓ No clashes in your plan.</p>
+      </section>
     )
   }
 
   return (
-    <div className="messages" role="status" aria-live="polite">
+    <section className="messages" role="status" aria-live="polite" aria-label="Clashes">
       {errors.map((c, i) => (
         <p key={`e${i}`} className="msg signal">
-          <span className="msg-label">⚠️ Kolizja egzaminów — blokuje</span>
-          <span>
-            {title(c.a.offeringId)} i {title(c.b.offeringId)} mają egzamin {formatDate(c.a.date)}, {assessmentStart(c.a)}.
-          </span>
+          <strong>⚠️ Exam clash (blocking):</strong> {name(c.a.offeringId)} and {name(c.b.offeringId)} both have an exam on{' '}
+          {formatDate(c.a.date)}, {assessmentTime(c.a)}.
         </p>
       ))}
       {classClashes.map((c, i) => (
         <p key={`c${i}`} className="msg">
-          <span className="msg-label">Kolizja zajęć</span>
-          <span>
-            {title(c.a.offeringId)} ({meetingLabel(c.a)}) nachodzi na {title(c.b.offeringId)} ({meetingLabel(c.b)}).
-          </span>
+          <strong>Class clash:</strong> {title(c.a.offeringId)} ({meetingLabel(c.a)}) overlaps {title(c.b.offeringId)} ({meetingLabel(c.b)}).
         </p>
       ))}
       {warnings.map((c, i) => (
         <p key={`w${i}`} className="msg">
-          <span className="msg-label">{c.timeUnknown ? 'Ten sam dzień' : 'Nakładanie się zaliczeń'}</span>
-          <span>
-            {title(c.a.offeringId)} ({KIND_LABEL[c.a.kind]}, {assessmentStart(c.a)}) i {title(c.b.offeringId)} ({KIND_LABEL[c.b.kind]},{' '}
-            {assessmentStart(c.b)}) — {formatDate(c.a.date)}
-            {c.timeUnknown ? ', godzina jednego z nich jest nieznana.' : '. Nie blokuje, ale sprawdź.'}
-          </span>
+          <strong>{c.timeUnknown ? 'Same assessment day:' : 'Assessment overlap:'}</strong> {KIND_LABEL[c.a.kind]} of {title(c.a.offeringId)} (
+          {assessmentTime(c.a)}) and {KIND_LABEL[c.b.kind].toLowerCase()} of {title(c.b.offeringId)} ({assessmentTime(c.b)}) on{' '}
+          {formatDate(c.a.date)}.
         </p>
       ))}
       {sameDay.map((p, i) => (
         <p key={`s${i}`} className="msg">
-          <span className="msg-label">Ten sam dzień</span>
-          <span>
-            {title(p.a.offeringId)} ({assessmentStart(p.a)}) i {title(p.b.offeringId)} ({assessmentStart(p.b)}) —{' '}
-            {p.a.kind === p.b.kind ? `oba: ${KIND_LABEL[p.a.kind]}` : `${KIND_LABEL[p.a.kind]} i ${KIND_LABEL[p.b.kind]}`}{' '}
-            {formatDate(p.a.date)}.
-          </span>
+          <strong>Same assessment day:</strong> {KIND_LABEL[p.a.kind]} of {title(p.a.offeringId)} ({assessmentTime(p.a)}) and{' '}
+          {KIND_LABEL[p.b.kind].toLowerCase()} of {title(p.b.offeringId)} ({assessmentTime(p.b)}) on {formatDate(p.a.date)}.
         </p>
       ))}
-    </div>
+    </section>
   )
 }

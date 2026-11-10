@@ -1,12 +1,12 @@
 import { findClassClashes } from './clashes'
 import { ectsSummary } from './ects'
 import { findExamClashes, findSameDayAssessments, sortedAssessments } from './exams'
-import { assessmentTime, formatDateLong, formatEcts, KIND_LABEL, meetingLabel, offeringLabel, sectionLetter } from './format'
+import { assessmentTime, formatDate, formatEcts, KIND_LABEL, meetingLabel, offeringLabel } from './format'
 import { mandatoryOfferings } from './schedule'
 import { planOfferings, type Selection } from './selection'
 import type { Offering, Schedule } from './types'
 
-/** Plain-text summary of the plan (Polish), meant to be copied into notes or an e-mail. */
+/** Plain-text summary of the plan, meant to be copied (e.g. into notes or an e-mail). */
 export function buildPlanSummary(schedule: Schedule, selection: Selection): string {
   const plan = planOfferings(selection, schedule)
   const mandatoryIds = new Set(mandatoryOfferings(schedule, selection.programId, selection.section).map((o) => o.id))
@@ -21,46 +21,49 @@ export function buildPlanSummary(schedule: Schedule, selection: Selection): stri
   }
 
   const lines: string[] = [
-    `Mój plan: ${program}, sekcja ${sectionLetter(selection.section)}`,
-    'Nova SBE MSc, semestr zimowy 2026/27',
-    ...(aoe ? [`Obszar (Area of Expertise): ${aoe.name}`] : []),
+    `My plan: ${program}, section ${selection.section}`,
+    'Nova SBE MSc, Fall 2026/27',
+    ...(aoe ? [`Area of Expertise: ${aoe.name}`] : []),
     '',
-    `ELECTIVY (${electives.length})`,
-    ...(electives.length ? electives.flatMap(courseLines) : ['- brak']),
+    `ELECTIVES (${electives.length})`,
+    ...(electives.length ? electives.flatMap(courseLines) : ['- none yet']),
     '',
-    `KURSY OBOWIĄZKOWE (${mandatory.length})`,
-    ...(mandatory.length ? mandatory.flatMap(courseLines) : ['- brak']),
+    `MANDATORY COURSES (${mandatory.length})`,
+    ...(mandatory.length ? mandatory.flatMap(courseLines) : ['- none']),
     '',
-    `ECTS: ${formatEcts(e.semester)} w semestrze (kursy T1 ${formatEcts(e.t1)}, kursy T2 ${formatEcts(e.t2)}, S1 ${formatEcts(e.s1)})`,
+    `ECTS: ${formatEcts(e.semester)} this semester (T1 courses ${formatEcts(e.t1)}, T2 courses ${formatEcts(e.t2)}, S1 courses ${formatEcts(e.s1)})`,
   ]
-  if (plan.some((o) => o.ectsInferred)) lines.push('* ECTS przyjęte według długości kursu (S1 = 7, T1/T2 = 3.5).')
+  if (plan.some((o) => o.ectsInferred)) lines.push('* ECTS assumed from term length (S1 = 7, T1/T2 = 3.5).')
 
   const classClashes = findClassClashes(plan)
   const examClashes = findExamClashes(plan)
   const sameDay = findSameDayAssessments(plan)
-  lines.push('', 'KOLIZJE')
-  if (classClashes.length + examClashes.length + sameDay.length === 0) lines.push('- brak')
+  lines.push('', 'CLASHES')
+  if (classClashes.length + examClashes.length + sameDay.length === 0) lines.push('- none')
   for (const c of examClashes.filter((x) => x.severity === 'error')) {
-    lines.push(`- Kolizja egzaminów (blokuje): ${name(c.a.offeringId)} i ${name(c.b.offeringId)}, ${formatDateLong(c.a.date)} ${assessmentTime(c.a)}`)
+    lines.push(`- Exam clash (blocking): ${name(c.a.offeringId)} and ${name(c.b.offeringId)}, ${formatDate(c.a.date)} ${assessmentTime(c.a)}`)
   }
   for (const c of classClashes) {
-    lines.push(`- Kolizja zajęć: ${name(c.a.offeringId)} ${meetingLabel(c.a)} nachodzi na ${name(c.b.offeringId)} ${meetingLabel(c.b)}`)
+    lines.push(`- Class clash: ${name(c.a.offeringId)} ${meetingLabel(c.a)} overlaps ${name(c.b.offeringId)} ${meetingLabel(c.b)}`)
   }
   for (const c of examClashes.filter((x) => x.severity === 'warning')) {
     lines.push(
-      `- ${c.timeUnknown ? 'Ten sam dzień, godzina nieznana' : 'Nakładanie się zaliczeń'}: ${KIND_LABEL[c.a.kind]} z ${name(c.a.offeringId)} i ${KIND_LABEL[c.b.kind]} z ${name(c.b.offeringId)}, ${formatDateLong(c.a.date)}`,
+      `- Assessment overlap: ${KIND_LABEL[c.a.kind]} of ${name(c.a.offeringId)} and ${KIND_LABEL[c.b.kind].toLowerCase()} of ${name(c.b.offeringId)}, ${formatDate(c.a.date)}`,
     )
   }
+
   for (const p of sameDay) {
-    lines.push(`- Ten sam dzień: ${name(p.a.offeringId)} i ${name(p.b.offeringId)}, ${formatDateLong(p.a.date)}`)
+    lines.push(
+      `- Same assessment day: ${KIND_LABEL[p.a.kind]} of ${name(p.a.offeringId)} and ${KIND_LABEL[p.b.kind].toLowerCase()} of ${name(p.b.offeringId)}, ${formatDate(p.a.date)}`,
+    )
   }
 
   const exams = sortedAssessments(plan)
-  lines.push('', 'TERMINY EGZAMINÓW')
-  if (exams.length === 0) lines.push('- brak')
+  lines.push('', 'EXAM DATES')
+  if (exams.length === 0) lines.push('- none')
   for (const a of exams) {
     const o = schedule.offeringsById.get(a.offeringId)!
-    lines.push(`- ${formatDateLong(a.date)}, ${assessmentTime(a)}: ${o.title} (${KIND_LABEL[a.kind]})`)
+    lines.push(`- ${formatDate(a.date)}, ${assessmentTime(a)}: ${o.title} (${KIND_LABEL[a.kind].toLowerCase()})`)
   }
   return lines.join('\n')
 }
@@ -68,8 +71,8 @@ export function buildPlanSummary(schedule: Schedule, selection: Selection): stri
 function courseLines(o: Offering): string[] {
   const ects = `${formatEcts(o.ects)}${o.ectsInferred ? '*' : ''} ECTS`
   return [
-    `- ${o.title} [${o.courseCode}], sekcja ${sectionLetter(o.section)}, ${o.termType}, ${ects}`,
-    `  Zajęcia: ${o.meetings.map((m) => `${meetingLabel(m)}${m.room ? ` (${m.room})` : ''}`).join('; ') || 'brak'}`,
+    `- ${o.title} [${o.courseCode}], section ${o.section}, ${o.termType}, ${ects}`,
+    `  Classes: ${o.meetings.map((m) => `${meetingLabel(m)}${m.room ? ` (${m.room})` : ''}`).join('; ') || 'none listed'}`,
   ]
 }
 

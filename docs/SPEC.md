@@ -29,7 +29,7 @@ Goal: show the student's weekly timetable (mandatory courses plus chosen electiv
 
 ## 4. User flow
 
-The UI is in Polish (course titles stay in English) and follows `docs/DESIGN.md`. A step nav at the top switches between Program, Plan, Electivy, Egzaminy and Podsumowanie.
+The UI is in English and follows `docs/DESIGN.md` ("Raw Index" v2). Screen 2 is a single plan screen; the copyable summary opens in a dialog.
 
 1. **Screen 1, "Who are you?"** The student picks a **program** (kierunek) and then a **section**. Sections (TXA, TXB, ...) exist because a program has many students, so each program is split into parallel groups with the same courses at different times. Both choices are on this first screen and together determine the mandatory courses. Sections per program: Business Analytics A-C, Economics A, Finance A-H, Management A-J, IDPP A-B, Impact Entrepreneurship and Innovation A-B.
 2. **Screen 2, "My plan".**
@@ -39,7 +39,8 @@ The UI is in Polish (course titles stay in English) and follows `docs/DESIGN.md`
    - An **ECTS counter** (mandatory plus chosen electives).
    - A panel with **exam dates** of all courses on the plan.
    - Clashes are highlighted on the timetable and listed in a message area.
-   - Electives, exams and the copyable summary (Podsumowanie) are separate steps in the nav.
+   - A **Copy summary** button opens a plain-text version of the plan to paste elsewhere.
+   - On the first visit, three short tips (timetable, your courses, add electives) explain the screen; they can be skipped or closed and replayed from the footer.
 
 ## 5. Functional requirements
 
@@ -52,10 +53,11 @@ The UI is in Polish (course titles stay in English) and follows `docs/DESIGN.md`
 | FR-5 | The ECTS counter shows the semester total and the ECTS of T1, T2 and S1 courses separately, plus the load per term (term courses plus half of each S1 course). S1 courses count 7 ECTS, T1/T2 courses 3.5. ECTS inferred from the term length are marked with `*`. The required minimum or maximum is **OPEN**. |
 | FR-6 | **Class clash:** two meetings clash if they are on the same day, their time ranges overlap, and their term spans intersect. A clash is shown on the timetable and in the message area. |
 | FR-7 | **Exam clash (error):** two final exams (kind `exam`) of different courses on the plan with the same date and overlapping times are a blocking error. Each assessment is treated as 1.5 h (maximum length) from its start slot; an explicit range (`09:00-12:00`) is used as given; per-section times in the note (`TXB - 11:00 & TXA - 15:30`) are resolved for the offering's section. Overlaps that involve a midterm or presentation, and two assessments on the same date where a time is unknown, are **warnings** (see open question 11). Exam dates come from the exams calendar. |
-| FR-8 | An exams screen lists exam date and time per course on the plan, sorted by date. Assessments of different courses on the same date that do not overlap are marked "ten sam dzień" (information, not an error). |
+| FR-8 | An exam panel lists exam date and time per course on the plan, sorted by date. Assessments of different courses on the same date that do not overlap are marked "ten sam dzień" (information, not an error). A Status column shows `⚠️ Clash` (blocking), `Overlap` (non-blocking) or `Same day`. |
 | FR-9 | (Later) On a clash, look for another offering of the same course that does not clash and suggest it. |
 | FR-10 | The selection is stored locally in the browser and survives a page reload. |
-| FR-11 | The Podsumowanie step shows a plain-text summary of the plan (program, section, electives and mandatory courses with code, section, term, ECTS and class times; ECTS totals; clashes; exam dates sorted by date) with a button that copies it to the clipboard. |
+| FR-11 | "Copy summary" opens a dialog with a plain-text summary of the plan (program, section, electives and mandatory courses with code, section, term, ECTS and class times; ECTS totals; clashes; exam dates sorted by date) with a button that copies it to the clipboard. |
+| FR-12 | **First-visit tips:** the first time the plan screen opens, a banner and three tips in turn (timetable, ECTS / your courses, add electives) explain the screen. Next / Back / Done, "Skip tips" and Esc close them; the choice is stored in `localStorage` (`elective-planner.tipsSeen`), falling back to once per session if storage is unavailable. A "Show tips" link in the footer replays them. |
 
 Clash rule as SQL (works on the schema in `schema.sql`):
 

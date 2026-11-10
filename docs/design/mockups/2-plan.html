@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plan — timetable, ECTS, electives</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Hanken+Grotesk:wght@400;500;600&amp;display=swap">
+<style>
+body{margin:0;background:#ffffff}
+a{color:#002fa7}a:hover{color:#0b0b0b}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer}
+</style>
+</head>
+<body>
+<div style="min-height: 100vh; background: #ffffff; color: #0b0b0b; font-family: 'Hanken Grotesk', system-ui, sans-serif; font-size: 14px; line-height: 1.45">
+
+  <header style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 20px; padding: 14px 24px; background: #002fa7; color: #ffffff">
+    <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; font-weight: 500; line-height: 1">Elective Planner</span>
+    <span style="font-size: 12.5px">Timetable-aware elective selection for Nova SBE MSc students</span>
+    <span style="margin-left: auto; font-size: 12.5px">28 ECTS this semester</span>
+  </header>
+
+  <div style="max-width: 1440px; margin: 0 auto; padding: 24px">
+
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px; margin-bottom: 20px">
+      <div>
+        <h1 style="margin: 0 0 2px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 34px; font-weight: 500; line-height: 1.1">Business Analytics · Section TXA</h1>
+        <button type="button" style="padding: 0; background: none; border: 0; color: #002fa7; text-decoration: underline; text-underline-offset: 3px; font-size: 13px">Change program or section</button>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+        <button type="button" style="min-height: 40px; padding: 0 16px; background: #ffffff; border: 1px solid #0b0b0b">Copy summary</button>
+        <div role="group" aria-label="Term" style="display: inline-flex; border: 1px solid #0b0b0b">
+          <button type="button" aria-pressed="true" style="min-height: 38px; padding: 0 22px; background: #002fa7; border: 0; color: #ffffff; font-weight: 600">T1</button>
+          <button type="button" aria-pressed="false" style="min-height: 38px; padding: 0 22px; background: #ffffff; border: 0; border-left: 1px solid #0b0b0b; font-weight: 600">T2</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 20px">
+
+      <div style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+
+        <section role="status" aria-label="Clashes" style="border: 1px solid #0b0b0b">
+          <p style="margin: 0; padding: 10px 14px; background: #ff5a1f; color: #0b0b0b"><strong>⚠️ Exam clash (blocking):</strong> Customer Relationship Management (TXA, T1) and Quality Management (TXA, T1) both have an exam on Mon 19 Oct, 14:30–17:30.</p>
+          <p style="margin: 0; padding: 10px 14px; border-top: 1px solid #0b0b0b"><strong>Class clash:</strong> Customer Relationship Management (Mon 08:00–11:00) overlaps Introduction to Python for Data Analysis (Mon 09:30–12:30).</p>
+          <p style="margin: 0; padding: 10px 14px; border-top: 1px solid #0b0b0b"><strong>Same assessment day:</strong> Exam of Competition Policy (08:30–11:30) and exam of Introduction to Python for Data Analysis (17:30–20:30) on Sat 17 Oct.</p>
+        </section>
+
+        <section aria-label="Timetable T1" style="border: 1px solid #0b0b0b; padding: 16px 18px 18px">
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; margin-bottom: 12px; font-size: 12.5px">
+            <span><span style="display: inline-block; width: 10px; height: 10px; background: #0b0b0b; vertical-align: -1px"></span> Mandatory</span>
+            <span><span style="display: inline-block; width: 10px; height: 10px; background: #002fa7; vertical-align: -1px"></span> Elective</span>
+            <span><span style="display: inline-block; width: 10px; height: 10px; background: #ff5a1f; vertical-align: -1px"></span> Clash</span>
+            <span><span style="display: inline-block; width: 8px; height: 8px; border: 1px dashed #002fa7; vertical-align: -1px"></span> Preview</span>
+            <span style="color: #6e6e6e">Hover a section in the list to preview it.</span>
+          </div>
+          <div style="overflow-x: auto">
+            <div style="min-width: 640px">
+              <div style="display: grid; grid-template-columns: 52px repeat(5, minmax(0, 1fr)); border-bottom: 1px solid #0b0b0b; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 20px; font-weight: 500; line-height: 1">
+                <span></span>
+                <span style="padding: 0 0 8px 8px">Mon</span>
+                <span style="padding: 0 0 8px 8px">Tue</span>
+                <span style="padding: 0 0 8px 8px">Wed</span>
+                <span style="padding: 0 0 8px 8px">Thu</span>
+                <span style="padding: 0 0 8px 8px">Fri</span>
+              </div>
+              <div style="display: grid; grid-template-columns: 52px repeat(5, minmax(0, 1fr)); height: 600px">
+                <div style="position: relative; color: #6e6e6e; font-size: 11.5px">
+                  <span style="position: absolute; top: 2px">08:00</span>
+                  <span style="position: absolute; top: 74px">09:30</span>
+                  <span style="position: absolute; top: 146px">11:00</span>
+                  <span style="position: absolute; top: 218px">12:30</span>
+                  <span style="position: absolute; top: 290px">14:00</span>
+                  <span style="position: absolute; top: 362px">15:30</span>
+                  <span style="position: absolute; top: 434px">17:00</span>
+                  <span style="position: absolute; top: 506px">18:30</span>
+                  <span style="position: absolute; top: 578px">20:00</span>
+                </div>
+
+                <div style="position: relative; border-left: 1px solid #0b0b0b; background: repeating-linear-gradient(to bottom, transparent 0, transparent 71px, #e4e4e4 71px, #e4e4e4 72px)">
+                  <div style="position: absolute; left: 0; right: 0; top: 288px; height: 72px; background: #f3f3f3"></div>
+                  <div style="position: absolute; top: 0; height: 144px; left: 2px; width: calc(50% - 3px); box-sizing: border-box; padding: 5px 6px; background: #ff5a1f; color: #0b0b0b; overflow: hidden; font-size: 11.5px; line-height: 1.3">
+                    <div style="font-size: 12px; font-weight: 600">Customer Relationship Management</div>
+                    <div style="margin-top: 3px">TXA · 08:00–11:00 · D-104</div>
+                    <div style="margin-top: 3px; font-weight: 600">⚠️ Clash</div>
+                  </div>
+                  <div style="position: absolute; top: 72px; height: 144px; left: calc(50% + 1px); right: 2px; box-sizing: border-box; padding: 5px 6px; background: #ff5a1f; color: #0b0b0b; overflow: hidden; font-size: 11.5px; line-height: 1.3">
+                    <div style="font-size: 12px; font-weight: 600">Introduction to Python for Data Analysis</div>
+                    <div style="margin-top: 3px">TXA · 09:30–12:30 · D-106</div>
+                    <div style="margin-top: 3px; font-weight: 600">⚠️ Clash</div>
+                  </div>
+                </div>
+
+                <div style="position: relative; border-left: 1px solid #0b0b0b; background: repeating-linear-gradient(to bottom, transparent 0, transparent 71px, #e4e4e4 71px, #e4e4e4 72px)">
+                  <div style="position: absolute; left: 0; right: 0; top: 288px; height: 72px; background: #f3f3f3"></div>
+                  <div style="position: absolute; top: 144px; height: 144px; left: 2px; right: 2px; box-sizing: border-box; padding: 6px 8px; background: #0b0b0b; color: #ffffff; font-size: 11.5px; line-height: 1.3">
+                    <div style="font-size: 12.5px; font-weight: 600">Research Methods for Business Analytics</div>
+                    <div style="margin-top: 4px">TXA · 11:00–14:00 · B002</div>
+                  </div>
+                  <div style="position: absolute; top: 504px; height: 72px; left: 2px; right: 2px; box-sizing: border-box; padding: 6px 8px; background: #002fa7; color: #ffffff; font-size: 11.5px; line-height: 1.3">
+                    <div style="font-size: 12.5px; font-weight: 600">Quality Management</div>
+                    <div style="margin-top: 4px">TXA · 18:30–20:00 · D-104</div>
+                  </div>
+                </div>
+
+                <div style="position: relative; border-left: 1px solid #0b0b0b; background: repeating-linear-gradient(to bottom, transparent 0, transparent 71px, #e4e4e4 71px, #e4e4e4 72px)">
+                  <div style="position: absolute; left: 0; right: 0; top: 288px; height: 72px; background: #f3f3f3"></div>
+                  <div style="position: absolute; top: 144px; height: 144px; left: 2px; right: 2px; box-sizing: border-box; padding: 6px 8px; background: #0b0b0b; color: #ffffff; font-size: 11.5px; line-height: 1.3">
+                    <div style="font-size: 12.5px; font-weight: 600">Digital Strategy and Markets</div>
+                    <div style="margin-top: 4px">TXA · 11:00–14:00 · B002</div>
+                  </div>
+                </div>
+
+                <div style="position: relative; border-left: 1px solid #0b0b0b; background: repeating-linear-gradient(to bottom, transparent 0, transparent 71px, #e4e4e4 71px, #e4e4e4 72px)">
+                  <div style="position: absolute; left: 0; right: 0; top: 288px; height: 72px; background: #f3f3f3"></div>
+                  <div style="position: absolute; top: 0; height: 144px; left: 2px; right: 2px; box-sizing: border-box; padding: 6px 8px; background: #002fa7; color: #ffffff; font-size: 11.5px; line-height: 1.3">
+                    <div style="font-size: 12.5px; font-weight: 600">Competition Policy</div>
+                    <div style="margin-top: 4px">TXA · 08:00–11:00 · D-105</div>
+                  </div>
+                  <div style="position: absolute; top: 360px; height: 144px; left: 2px; right: 2px; box-sizing: border-box; padding: 5px 7px; background: #ffffff; border: 1px dashed #002fa7; color: #002fa7; font-size: 11.5px; line-height: 1.3; z-index: 1">
+                    <div style="font-size: 12.5px; font-weight: 600">Business Model Innovation</div>
+                    <div style="margin-top: 4px">TXA · 15:30–18:30 · D-105</div>
+                    <div style="margin-top: 4px">Preview</div>
+                  </div>
+                  <div style="position: absolute; top: 504px; height: 72px; left: 2px; right: 2px; box-sizing: border-box; padding: 6px 8px; background: #002fa7; color: #ffffff; font-size: 11.5px; line-height: 1.3">
+                    <div style="font-size: 12.5px; font-weight: 600">Quality Management</div>
+                    <div style="margin-top: 4px">TXA · 18:30–20:00 · D-104</div>
+                  </div>
+                </div>
+
+                <div style="position: relative; border-left: 1px solid #0b0b0b; border-right: 1px solid #0b0b0b; background: repeating-linear-gradient(to bottom, transparent 0, transparent 71px, #e4e4e4 71px, #e4e4e4 72px)">
+                  <div style="position: absolute; left: 0; right: 0; top: 288px; height: 72px; background: #f3f3f3"></div>
+                  <div style="position: absolute; top: 0; height: 144px; left: 2px; right: 2px; box-sizing: border-box; padding: 6px 8px; background: #002fa7; color: #ffffff; font-size: 11.5px; line-height: 1.3">
+                    <div style="font-size: 12.5px; font-weight: 600">Applied Entrepreneurship</div>
+                    <div style="margin-top: 4px">TXA · S1 · 08:00–11:00 · B004</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section aria-label="Exam dates" style="border: 1px solid #0b0b0b; padding: 16px 18px 18px">
+          <h2 style="margin: 0 0 10px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; font-weight: 500; line-height: 1.1">Exam dates</h2>
+          <div style="overflow-x: auto">
+            <table style="width: 100%; min-width: 560px; border-collapse: collapse; font-size: 13.5px">
+              <thead>
+                <tr style="text-align: left">
+                  <th scope="col" style="padding: 6px 8px 6px 0; font-size: 12px; font-weight: 600; color: #6e6e6e; border-bottom: 1px solid #0b0b0b">Date</th>
+                  <th scope="col" style="padding: 6px 8px; font-size: 12px; font-weight: 600; color: #6e6e6e; border-bottom: 1px solid #0b0b0b">Time</th>
+                  <th scope="col" style="padding: 6px 8px; font-size: 12px; font-weight: 600; color: #6e6e6e; border-bottom: 1px solid #0b0b0b">Course</th>
+                  <th scope="col" style="padding: 6px 8px; font-size: 12px; font-weight: 600; color: #6e6e6e; border-bottom: 1px solid #0b0b0b">Type</th>
+                  <th scope="col" style="padding: 6px 0 6px 8px; font-size: 12px; font-weight: 600; color: #6e6e6e; border-bottom: 1px solid #0b0b0b">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td style="padding: 8px 8px 8px 0; border-bottom: 1px solid #e4e4e4">Thu 15 Oct</td><td style="padding: 8px; border-bottom: 1px solid #e4e4e4">11:30–14:30</td><td style="padding: 8px; border-bottom: 1px solid #e4e4e4">Digital Strategy and Markets <span style="color: #6e6e6e">(TXA)</span></td><td style="padding: 8px; border-bottom: 1px solid #e4e4e4">Exam</td><td style="padding: 8px 0 8px 8px; border-bottom: 1px solid #e4e4e4"></td></tr>
+                <tr><td style="padding: 8px 8px 8px 0; border-bottom: 1px solid #e4e4e4">Sat 17 Oct</td><td style="padding: 8px; border-bottom: 1px solid #e4e4e4">08:30–11:30</td><td style="padding: 8px; border-bottom: 1px solid #e4e4e4">Competition Policy <span style="color: #6e6e6e">(TXA)</span></td><td style="padding: 8px; border-bottom: 1px solid #e4e4e4">Exam</td><td style="padding: 8px 0 8px 8px; border-bottom: 1px solid #e4e4e4"><span style="padding: 1px 6px; border: 1px solid #0b0b0b; font-size: 11.5px; font-weight: 600">Same day</span></td></tr>
+                <tr><td style="padding: 8px 8px 8px 0; border-bottom: 1px solid #e4e4e4">Sat 17 Oct</td><td style="padding: 8px; border-bottom: 1px solid #e4e4e4">17:30–20:30</td><td style="padding: 8px; border-bottom: 1px solid #e4e4e4">Introduction to Python for Data Analysis <span style="color: #6e6e6e">(TXA)</span></td><td style="padding: 8px; border-bottom: 1px solid #e4e4e4">Exam</td><td style="padding: 8px 0 8px 8px; border-bottom: 1px solid #e4e4e4"><span style="padding: 1px 6px; border: 1px solid #0b0b0b; font-size: 11.5px; font-weight: 600">Same day</span></td></tr>
+                <tr style="background: #ff5a1f"><td style="padding: 8px 8px 8px 6px; border-bottom: 1px solid #0b0b0b">Mon 19 Oct</td><td style="padding: 8px; border-bottom: 1px solid #0b0b0b">14:30–17:30</td><td style="padding: 8px; border-bottom: 1px solid #0b0b0b">Customer Relationship Management <span>(TXA)</span></td><td style="padding: 8px; border-bottom: 1px solid #0b0b0b">Exam</td><td style="padding: 8px 6px 8px 8px; border-bottom: 1px solid #0b0b0b; font-weight: 600">⚠️ Clash</td></tr>
+                <tr style="background: #ff5a1f"><td style="padding: 8px 8px 8px 6px; border-bottom: 1px solid #0b0b0b">Mon 19 Oct</td><td style="padding: 8px; border-bottom: 1px solid #0b0b0b">14:30–17:30</td><td style="padding: 8px; border-bottom: 1px solid #0b0b0b">Quality Management <span>(TXA)</span></td><td style="padding: 8px; border-bottom: 1px solid #0b0b0b">Exam</td><td style="padding: 8px 6px 8px 8px; border-bottom: 1px solid #0b0b0b; font-weight: 600">⚠️ Clash</td></tr>
+                <tr><td style="padding: 8px 8px 8px 0; border-bottom: 1px solid #e4e4e4">Tue 20 Oct</td><td style="padding: 8px; border-bottom: 1px solid #e4e4e4">08:30–11:30</td><td style="padding: 8px; border-bottom: 1px solid #e4e4e4">Research Methods for Business Analytics <span style="color: #6e6e6e">(TXA)</span></td><td style="padding: 8px; border-bottom: 1px solid #e4e4e4">Exam</td><td style="padding: 8px 0 8px 8px; border-bottom: 1px solid #e4e4e4"></td></tr>
+                <tr><td style="padding: 8px 8px 8px 0">Wed 16 Dec</td><td style="padding: 8px">11:30–14:30</td><td style="padding: 8px">Applied Entrepreneurship <span style="color: #6e6e6e">(TXA)</span></td><td style="padding: 8px">Exam</td><td style="padding: 8px 0 8px 8px"></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin: 10px 0 0; font-size: 12.5px; color: #6e6e6e">Exam times are start slots; each exam is assumed to last 3 hours.</p>
+        </section>
+      </div>
+
+      <aside style="flex: 1 1 380px; max-width: 440px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+
+        <section aria-label="ECTS" style="border: 1px solid #0b0b0b; padding: 16px 18px 18px">
+          <h2 style="margin: 0 0 8px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; font-weight: 500; line-height: 1.1">ECTS</h2>
+          <div style="display: flex; align-items: baseline; gap: 10px">
+            <span style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 60px; line-height: 0.9; font-feature-settings: 'onum'">28</span>
+            <span style="color: #6e6e6e">ECTS this semester</span>
+          </div>
+          <dl style="margin: 12px 0; display: grid; grid-template-columns: 1fr auto; gap: 3px 16px; font-size: 13.5px">
+            <dt style="color: #6e6e6e">T1 courses</dt><dd style="margin: 0; font-weight: 600; text-align: right">21</dd>
+            <dt style="color: #6e6e6e">T2 courses</dt><dd style="margin: 0; font-weight: 600; text-align: right">0</dd>
+            <dt style="color: #6e6e6e">S1 (whole semester)</dt><dd style="margin: 0; font-weight: 600; text-align: right">7</dd>
+            <dt style="color: #6e6e6e">Load in T1 / T2</dt><dd style="margin: 0; font-weight: 600; text-align: right">24.5 / 3.5</dd>
+          </dl>
+          <p style="margin: 0 0 14px; font-size: 12.5px; color: #6e6e6e">The required minimum and maximum ECTS are not confirmed yet.</p>
+
+          <h3 style="margin: 0; padding-top: 12px; border-top: 1px solid #0b0b0b; font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase">Your courses</h3>
+          <ul style="list-style: none; margin: 6px 0 0; padding: 0; font-size: 13.5px">
+            <li style="display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid #e4e4e4"><span style="flex: none; width: 10px; height: 10px; background: #0b0b0b"></span><span style="flex: 1 1 auto; min-width: 0">Introduction to Python for Data Analysis <span style="color: #6e6e6e">TXA · T1 · 3.5 ECTS</span></span><span style="flex: none; padding: 1px 6px; border: 1px solid #0b0b0b; font-size: 11.5px; font-weight: 600">Mandatory</span></li>
+            <li style="display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid #e4e4e4"><span style="flex: none; width: 10px; height: 10px; background: #0b0b0b"></span><span style="flex: 1 1 auto; min-width: 0">Research Methods for Business Analytics <span style="color: #6e6e6e">TXA · T1 · 3.5 ECTS</span></span><span style="flex: none; padding: 1px 6px; border: 1px solid #0b0b0b; font-size: 11.5px; font-weight: 600">Mandatory</span></li>
+            <li style="display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid #e4e4e4"><span style="flex: none; width: 10px; height: 10px; background: #0b0b0b"></span><span style="flex: 1 1 auto; min-width: 0">Digital Strategy and Markets <span style="color: #6e6e6e">TXA · T1 · 3.5 ECTS</span></span><span style="flex: none; padding: 1px 6px; border: 1px solid #0b0b0b; font-size: 11.5px; font-weight: 600">Mandatory</span></li>
+            <li style="display: flex; align-items: center; gap: 10px; padding: 7px 6px; margin: 0 -6px; background: #ff5a1f"><span style="flex: none; width: 10px; height: 10px; background: #002fa7"></span><span style="flex: 1 1 auto; min-width: 0">Customer Relationship Management <span>TXA · T1 · 3.5 ECTS</span></span><button type="button" style="flex: none; min-height: 30px; padding: 0 10px; background: #ffffff; border: 1px solid #0b0b0b; font-size: 12.5px">Remove</button></li>
+            <li style="display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid #e4e4e4"><span style="flex: none; width: 10px; height: 10px; background: #002fa7"></span><span style="flex: 1 1 auto; min-width: 0">Competition Policy <span style="color: #6e6e6e">TXA · T1 · 3.5 ECTS</span></span><button type="button" style="flex: none; min-height: 30px; padding: 0 10px; background: #ffffff; border: 1px solid #0b0b0b; font-size: 12.5px">Remove</button></li>
+            <li style="display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid #e4e4e4"><span style="flex: none; width: 10px; height: 10px; background: #002fa7"></span><span style="flex: 1 1 auto; min-width: 0">Quality Management <span style="color: #6e6e6e">TXA · T1 · 3.5 ECTS</span></span><button type="button" style="flex: none; min-height: 30px; padding: 0 10px; background: #ffffff; border: 1px solid #0b0b0b; font-size: 12.5px">Remove</button></li>
+            <li style="display: flex; align-items: center; gap: 10px; padding: 7px 0"><span style="flex: none; width: 10px; height: 10px; background: #002fa7"></span><span style="flex: 1 1 auto; min-width: 0">Applied Entrepreneurship <span style="color: #6e6e6e">TXA · S1 · 7 ECTS</span></span><button type="button" style="flex: none; min-height: 30px; padding: 0 10px; background: #ffffff; border: 1px solid #0b0b0b; font-size: 12.5px">Remove</button></li>
+          </ul>
+        </section>
+
+        <section aria-label="Add electives" style="border: 1px solid #0b0b0b; padding: 16px 18px 18px">
+          <h2 style="margin: 0 0 10px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 26px; font-weight: 500; line-height: 1.1">Add electives</h2>
+          <div role="tablist" style="display: flex; gap: 18px; border-bottom: 1px solid #0b0b0b; margin-bottom: 12px">
+            <button type="button" role="tab" aria-selected="true" style="padding: 6px 0; margin-bottom: -1px; background: none; border: 0; border-bottom: 3px solid #002fa7; color: #002fa7; font-weight: 600">Your program</button>
+            <button type="button" role="tab" aria-selected="false" style="padding: 6px 0; background: none; border: 0; color: #6e6e6e; font-weight: 600">Other masters</button>
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px">
+            <input type="search" placeholder="Search title or code" aria-label="Search electives" style="flex: 1 1 100%; min-height: 38px; box-sizing: border-box; padding: 0 10px; border: 1px solid #0b0b0b; background: #ffffff">
+            <select aria-label="Term" style="min-height: 38px; padding: 0 8px; border: 1px solid #0b0b0b; background: #ffffff">
+              <option>All terms</option><option>T1</option><option>T2</option><option>S1 (semester)</option>
+            </select>
+            <label style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px"><input type="checkbox" style="margin: 0; width: 16px; height: 16px; accent-color: #002fa7"> Hide clashing</label>
+          </div>
+
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px">
+            <li style="border: 2px solid #002fa7; padding: 9px 11px">
+              <div style="font-weight: 600">Business Model Innovation</div>
+              <div style="font-size: 12.5px; color: #6e6e6e">2448 · T1 · 3.5 ECTS · no exam date</div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 8px; padding-top: 8px; border-top: 1px solid #e4e4e4">
+                <span style="flex: none; width: 34px; font-weight: 600; font-size: 12.5px">TXA</span>
+                <span style="flex: 1 1 auto; font-size: 12.5px; color: #6e6e6e">Thu 15:30–18:30</span>
+                <button type="button" style="min-height: 30px; padding: 0 14px; background: #002fa7; border: 1px solid #002fa7; color: #ffffff; font-size: 12.5px; font-weight: 500">Add</button>
+              </div>
+            </li>
+            <li style="border: 1px solid #0b0b0b; padding: 10px 12px">
+              <div style="font-weight: 600">Corporate Strategy and Transformation</div>
+              <div style="font-size: 12.5px; color: #6e6e6e">2484 · S1 · 7 ECTS · exam Thu 10 Dec</div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 8px; padding-top: 8px; border-top: 1px solid #e4e4e4">
+                <span style="flex: none; width: 34px; font-weight: 600; font-size: 12.5px">TXA</span>
+                <span style="flex: 1 1 auto; font-size: 12.5px; color: #6e6e6e">Mon 11:00–14:00</span>
+                <span style="padding: 1px 6px; background: #ff5a1f; font-size: 11.5px; font-weight: 600">Time clash</span>
+                <button type="button" style="min-height: 30px; padding: 0 14px; background: #002fa7; border: 1px solid #002fa7; color: #ffffff; font-size: 12.5px; font-weight: 500">Add</button>
+              </div>
+            </li>
+            <li style="border: 1px solid #0b0b0b; padding: 10px 12px">
+              <div style="font-weight: 600">Competitive Strategy: an analytical approach</div>
+              <div style="font-size: 12.5px; color: #6e6e6e">2582 · S1 · 7 ECTS · exam Sat 19 Dec</div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 8px; padding-top: 8px; border-top: 1px solid #e4e4e4">
+                <span style="flex: none; width: 34px; font-weight: 600; font-size: 12.5px">TXA</span>
+                <span style="flex: 1 1 auto; font-size: 12.5px; color: #6e6e6e">Tue 18:30–20:00 · Fri 15:30–17:00</span>
+                <span style="padding: 1px 6px; background: #ff5a1f; font-size: 11.5px; font-weight: 600">Time clash</span>
+                <button type="button" style="min-height: 30px; padding: 0 14px; background: #002fa7; border: 1px solid #002fa7; color: #ffffff; font-size: 12.5px; font-weight: 500">Add</button>
+              </div>
+            </li>
+            <li style="border: 1px solid #0b0b0b; padding: 10px 12px">
+              <div style="font-weight: 600">Customer Relationship Management</div>
+              <div style="font-size: 12.5px; color: #6e6e6e">2389 · T1 · 3.5 ECTS · exam Mon 19 Oct</div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 8px; padding-top: 8px; border-top: 1px solid #e4e4e4">
+                <span style="flex: none; width: 34px; font-weight: 600; font-size: 12.5px">TXA</span>
+                <span style="flex: 1 1 auto; font-size: 12.5px; color: #6e6e6e">Mon 08:00–11:00</span>
+                <span style="font-size: 12.5px">✓ In plan</span>
+                <button type="button" style="min-height: 30px; padding: 0 12px; background: #ffffff; border: 1px solid #0b0b0b; font-size: 12.5px">Remove</button>
+              </div>
+            </li>
+            <li style="border: 1px solid #0b0b0b; padding: 10px 12px">
+              <div style="font-weight: 600">Competition Policy</div>
+              <div style="font-size: 12.5px; color: #6e6e6e">2128 · T1 · 3.5 ECTS · exam Sat 17 Oct</div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-top: 8px; padding-top: 8px; border-top: 1px solid #e4e4e4">
+                <span style="flex: none; width: 34px; font-weight: 600; font-size: 12.5px">TXA</span>
+                <span style="flex: 1 1 auto; font-size: 12.5px; color: #6e6e6e">Thu 08:00–11:00</span>
+                <span style="font-size: 12.5px">✓ In plan</span>
+                <button type="button" style="min-height: 30px; padding: 0 12px; background: #ffffff; border: 1px solid #0b0b0b; font-size: 12.5px">Remove</button>
+              </div>
+            </li>
+          </ul>
+          <p style="margin: 10px 0 0; font-size: 12.5px; color: #6e6e6e">Showing 5 of the courses in your program. Scroll for more.</p>
+        </section>
+      </aside>
+    </div>
+  </div>
+</div>
+</body>
+</html>
